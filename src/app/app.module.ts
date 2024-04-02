@@ -9,13 +9,17 @@ import { ImageViewComponent } from './image-view/image-view.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { NasaImageComponent } from './nasa-image/nasa-image.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DatePickerComponent,
     RangeSliderComponent,
-    ImageViewComponent
+    ImageViewComponent,
+    NasaImageComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -23,7 +27,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

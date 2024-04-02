@@ -1,0 +1,19 @@
+<div [style.width.%]="zoomSize">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ title }}
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      {{ explanation }}
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <app-image-view
+    [imageSrc]="url"
+    [imageAlt]="title"
+    [imageDescription]="explanation"
+    [imageZoom]="zoomSize"
+  />
+</div>
