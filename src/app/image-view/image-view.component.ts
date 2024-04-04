@@ -9,7 +9,5 @@ import { Component, Input } from '@angular/core';
 export class ImageViewComponent {
   @Input() imageSrc: string;
   @Input() imageAlt: string;
-  @Input() imageDescription: string;
-  @Input() imageZoom: number;
-  
+  @Input() imageDescription: string;  
 }
