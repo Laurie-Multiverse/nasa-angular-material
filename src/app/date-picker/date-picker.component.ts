@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DateService } from '../date.service';
 
 @Component({
@@ -6,10 +6,17 @@ import { DateService } from '../date.service';
   templateUrl: './date-picker.component.html',
   styleUrls: ['./date-picker.component.css']
 })
-export class DatePickerComponent {
+export class DatePickerComponent implements OnInit {
   date : Date;
 
   constructor(private dateService: DateService) {}
+
+  ngOnInit(): void {
+    this.dateService.getDate().subscribe({
+      next: (date) => {
+        this.date = date;
+      }});
+  }
 
   dateChosen(date : Date) {
     this.dateService.setDate(date);
