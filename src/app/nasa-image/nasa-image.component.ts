@@ -1,35 +1,37 @@
-import { Component, Input, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NasaApiService } from '../nasa-api.service';
 import { DateService } from '../date.service';
+import { ZoomSizeService } from '../zoom-size.service';
 
 @Component({
   selector: 'app-nasa-image',
   templateUrl: './nasa-image.component.html',
   styleUrls: ['./nasa-image.component.css']
 })
-export class NasaImageComponent implements OnInit, OnChanges {
-  @Input() zoomSize: number;
+export class NasaImageComponent implements OnInit {
+  zoomSize: number;
   date: Date;
   url : string;
   title : string;
   explanation: string;
   formattedDate: string;
 
-  constructor(private nasaApiService : NasaApiService, private dateService : DateService) {  }
+  constructor(private nasaApiService : NasaApiService, private dateService : DateService, private zoomSizeService: ZoomSizeService) {  }
 
   ngOnInit(): void {
     this.dateService.getDate().subscribe({
       next: (date) => {
         this.date = date;
-        this.getPictureOfTheDay();
+        this.fetchPictureOfTheDay();
       }});
-  }
-
-  ngOnChanges(): void {
-    this.getPictureOfTheDay();
+    this.zoomSizeService.getZoomSize().subscribe({
+      next: (zoomSize) => {
+        this.zoomSize = zoomSize;
+      }
+    })
   }
   
-  getPictureOfTheDay(){
+  fetchPictureOfTheDay(){
     if (!this.date) return;
     this.formatDate();
     this.nasaApiService.getAstronomyPictureOfTheDay(this.formattedDate).subscribe(
