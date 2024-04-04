@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, OnChanges } from '@angular/core';
 import { NasaApiService } from '../nasa-api.service';
+import { DateService } from '../date.service';
 
 @Component({
   selector: 'app-nasa-image',
@@ -8,16 +9,20 @@ import { NasaApiService } from '../nasa-api.service';
 })
 export class NasaImageComponent implements OnInit, OnChanges {
   @Input() zoomSize: number;
-  @Input() date: Date;
+  date: Date;
   url : string;
   title : string;
   explanation: string;
   formattedDate: string;
 
-  constructor(private nasaApiService : NasaApiService) { }
+  constructor(private nasaApiService : NasaApiService, private dateService : DateService) {  }
 
   ngOnInit(): void {
-    this.getPictureOfTheDay();
+    this.dateService.getDate().subscribe({
+      next: (date) => {
+        this.date = date;
+        this.getPictureOfTheDay();
+      }});
   }
 
   ngOnChanges(): void {
@@ -25,6 +30,7 @@ export class NasaImageComponent implements OnInit, OnChanges {
   }
   
   getPictureOfTheDay(){
+    if (!this.date) return;
     this.formatDate();
     this.nasaApiService.getAstronomyPictureOfTheDay(this.formattedDate).subscribe(
       (data:any) => {

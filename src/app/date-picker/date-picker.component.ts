@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { DateService } from '../date.service';
 
 @Component({
   selector: 'app-date-picker',
@@ -6,11 +7,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./date-picker.component.css']
 })
 export class DatePickerComponent {
-  @Input() date : Date;
-  @Output() dateChange = new EventEmitter<Date>();
+  date : Date;
+
+  constructor(private dateService: DateService) {}
 
   dateChosen(date : Date) {
-    date = this.date;
-    this.dateChange.emit(this.date);
+    this.dateService.setDate(date);
   }
 }

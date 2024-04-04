@@ -6,7 +6,7 @@
 
 <mat-card>
   <mat-card-header>Date</mat-card-header>
-  <mat-card-content><app-date-picker [(date)]="date"/></mat-card-content>
+  <mat-card-content><app-date-picker/></mat-card-content>
 </mat-card>
 
 <mat-card>
@@ -17,6 +17,6 @@
 <h2>Display Panel</h2>
 
 <mat-card>
-  <app-nasa-image [zoomSize]="zoomSize" [date]="date"></app-nasa-image>
+  <app-nasa-image [zoomSize]="zoomSize"></app-nasa-image>
 </mat-card>
 <router-outlet></router-outlet>

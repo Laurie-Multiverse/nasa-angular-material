@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title:string = 'nasa-angular';
   zoomSize:number = 100;
-  date: Date = new Date();
 }
