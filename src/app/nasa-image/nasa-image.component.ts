@@ -17,14 +17,14 @@ export class NasaImageComponent implements OnInit, OnChanges {
   constructor(private nasaApiService : NasaApiService) { }
 
   ngOnInit(): void {
-    this.getPictureOfTheDay();
+    this.fetchPictureOfTheDay();
   }
 
   ngOnChanges(): void {
-    this.getPictureOfTheDay();
+    this.fetchPictureOfTheDay();
   }
   
-  getPictureOfTheDay(){
+  fetchPictureOfTheDay(){
     this.formatDate();
     this.nasaApiService.getAstronomyPictureOfTheDay(this.formattedDate).subscribe(
       (data:any) => {
