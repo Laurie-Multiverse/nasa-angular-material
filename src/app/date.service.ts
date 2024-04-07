@@ -14,4 +14,9 @@ export class DateService {
   setDate(date: Date) {
     this.date.next(date);
   }
+  
+  destroy() {
+    this.date.complete();
+  }
+
 }

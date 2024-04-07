@@ -15,4 +15,8 @@ export class ZoomSizeService {
     this.zoomSize.next(zoomSize);
   }
 
+  destroy() {
+    this.zoomSize.complete();
+  }
+
 }
