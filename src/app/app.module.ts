@@ -11,6 +11,8 @@ import { MaterialModule } from './material/material.module';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NasaImageComponent } from './nasa-image/nasa-image.component';
+import { EclipseComponent } from './eclipse/eclipse.component';
+import { ImageDisplayComponent } from './image-display/image-display.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { NasaImageComponent } from './nasa-image/nasa-image.component';
     RangeSliderComponent,
     ImageViewComponent,
     NasaImageComponent,
+    EclipseComponent,
+    ImageDisplayComponent,
   
   ],
   imports: [

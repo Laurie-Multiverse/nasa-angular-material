@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environments';
+const API_KEY = environment.apiKey || 'Fbc6i3XjnJIJcmQSZzwaMfojz9A5DIgQXJBbIIZE';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NasaApiService {
-  private apiKey = 'Fbc6i3XjnJIJcmQSZzwaMfojz9A5DIgQXJBbIIZE'; // Replace with your actual API key from NASA
+  private apiKey = API_KEY;
 
   constructor(private http: HttpClient) {}
 

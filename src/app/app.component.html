@@ -2,21 +2,6 @@
   <span>Nasa Pics</span>
 </mat-toolbar>
 
-<h2>Control Panel</h2>
-
-<mat-card>
-  <mat-card-header>Date</mat-card-header>
-  <mat-card-content><app-date-picker/></mat-card-content>
-</mat-card>
-
-<mat-card>
-  <mat-card-header>Size</mat-card-header>
-  <mat-card-content><app-range-slider/></mat-card-content>
-</mat-card>
-
-<h2>Display Panel</h2>
-
-<mat-card>
-  <app-nasa-image></app-nasa-image>
-</mat-card>
+<button routerLink="image">display NASA image</button>
+<button routerLink="eclipse">about the eclipse</button>
 <router-outlet></router-outlet>
