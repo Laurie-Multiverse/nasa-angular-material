@@ -1,0 +1,11 @@
+<h2>Earth Orbiting Objects</h2>
+<mat-card>
+  <h3 *ngIf="satellites?.totalItems == undefined">Loading...</h3>
+  <h3 *ngIf="satellites?.totalItems != undefined">
+    There are currently {{ satellites?.totalItems?.toLocaleString() }} objects
+    orbiting earth. The most popular are:
+    <li *ngFor="let satellite of satellites.member">
+      {{ satellite.name }}
+    </li>
+  </h3>
+</mat-card>

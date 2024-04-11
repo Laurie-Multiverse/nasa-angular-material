@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ImageDisplayComponent } from './image-display/image-display.component';
-import { EclipseComponent } from './eclipse/eclipse.component';
+import { SatellitesComponent } from './satellites/satellites.component';
 
 const routes: Routes = [
   {path: "image", component: ImageDisplayComponent},
-  {path: "eclipse", component: EclipseComponent},
+  {path: "satellites", component: SatellitesComponent},
 ];
 
 @NgModule({

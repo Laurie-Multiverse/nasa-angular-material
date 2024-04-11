@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ImageDisplayComponent } from './image-display.component';
+import { MaterialModule } from '../material/material.module';
+import { AppModule } from '../app.module';
 
 describe('ImageDisplayComponent', () => {
   let component: ImageDisplayComponent;
@@ -8,7 +10,8 @@ describe('ImageDisplayComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ImageDisplayComponent]
+      declarations: [ImageDisplayComponent],
+      imports: [AppModule,MaterialModule],
     });
     fixture = TestBed.createComponent(ImageDisplayComponent);
     component = fixture.componentInstance;

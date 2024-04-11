@@ -16,4 +16,9 @@ export class NasaApiService {
     const url = `https://api.nasa.gov/planetary/apod?api_key=${this.apiKey}&date=${date}`;
     return this.http.get(url);
   }
+
+  getSatellites(): Observable<any> {
+    const url = "https://tle.ivanstanojevic.me/api/tle";
+    return this.http.get(url);
+  }
 }
